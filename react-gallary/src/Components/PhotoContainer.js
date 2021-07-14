@@ -1,12 +1,12 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import { withRouter } from 'react-router-dom';
-
 import NotFound from './NotFound';
 import Photo from './Photo';
 
-function PhotoContainer (props) {
+const PhotoContainer = (props) => {
 
-// iterates the array of the live photo on flicker 
+
+//function below iterates through each photo in the array and interpolates the value of the photo server and photo id
     let photos = props.data.map (photo => 
         <Photo
             url={`https://live.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`}
@@ -14,9 +14,9 @@ function PhotoContainer (props) {
         />
     );
 
-    // return the picture inside div container saw it will be able to be passed to the ul.
-return (
-    <div className="photo-container">
+//this will return the photos into the photo containter, loads them into the ul
+return(
+<div className="photo-container">
     {(props.loading) ? <p>Loading</p> :
     (!props.data.length && !props.loading) ? <NotFound/> :
     <div>
@@ -25,9 +25,7 @@ return (
     </div>
     }
 </div>
-  );
+);
 }
 
-
-
-export default withRouter(PhotoContainer)  
+export default withRouter(PhotoContainer);
