@@ -1,26 +1,39 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 
+// creating state for the search to have change when we search what we want
 class SearchForm extends Component {
   state = {
     search: "",
   };
 
   onSearchChange = (e) => {
-    this.setState({ 
-        searchText: e.target.value 
+    this.setState({
+      searchText: e.target.value,
     });
   };
 
+  // hands to submit by calling the conditional statement
   handleSubmit = (e) => {
     e.preventDefault();
+    let searchpath = `/search/${this.state.search}`;
+    if (searchpath) {
+      this.props.onSearch(this.state.search);
+      this.props.history.push(searchpath);
+    }
     e.currentTarget.reset();
   };
 
   render() {
     return (
-      <form className="search-form">
-      <label className="is-hidden htmlFor="search">Search</label>
-        <input type="search" name="search" placeholder="Search" required />
+      <form className="search-form" onSubmit={this.handleSubmit}>
+        <input
+          type="search"
+          name="search"
+          placeholder="Search"
+          onChange={this.onSearchChange}
+          required
+        />
         <button type="submit" class="search-button">
           <svg
             fill="#fff"
@@ -38,4 +51,4 @@ class SearchForm extends Component {
   }
 }
 
-export default SearchForm;
+export default withRouter(SearchForm);

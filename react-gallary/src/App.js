@@ -13,8 +13,20 @@ import SearchForm from './Components/SearchForm';
 class App extends Component {
   state = {  }
   render() { 
+
     return ( 
-      
+     <BrowserRouter>
+     <div className ="container">
+     <SearchForm/>
+     <Nav/>
+
+     <div className = "photo-container">
+
+
+
+     </div>
+     </div>
+     </BrowserRouter> 
      );
   }
 }
