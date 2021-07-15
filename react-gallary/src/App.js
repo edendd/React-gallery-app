@@ -18,6 +18,7 @@ class App extends Component {
     };
   }
 
+  //
   componentDidMount() {
     this.searchResults();
     this.cats();
@@ -25,7 +26,7 @@ class App extends Component {
     this.birds();
   }
 
-  //Function to search photos based on tags
+  //Function to search photos based on tags and also shows a random imgaes on the animals
   searchResults = (query = "animals") => {
     fetch(
       `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`

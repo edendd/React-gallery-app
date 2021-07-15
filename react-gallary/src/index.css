@@ -46,9 +46,11 @@ input {
 .main-nav a {
   display: block;
   background: #6bc072;
-  border-radius: 3px;
+  border-radius: 10px;
   padding: 5px;
-  color: #fff;
+  color:black;
+  width: 95px;
+ 
   
 }
 .main-nav .active,
@@ -97,7 +99,7 @@ input {
     padding-top: 4em;
     background-color: lightgrey;
     border-style: outset;
-    opacity: 0.8;
+   
   }
   .container {
     max-width: 960px;
