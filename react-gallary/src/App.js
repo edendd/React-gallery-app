@@ -6,6 +6,7 @@ import PhotoContainer from "./Components/PhotoContainer";
 import NotFound from "./Components/NotFound";
 import SearchForm from "./Components/SearchForm";
 
+// array for the gallary prctures 
 class App extends Component {
   constructor() {
     super();
@@ -14,20 +15,20 @@ class App extends Component {
       cats: [],
       dogs: [],
       birds: [],
-      tags: "",
+  
     };
   }
 
   //
   componentDidMount() {
-    this.searchResults();
+    this.Results();
     this.cats();
     this.dogs();
     this.birds();
   }
 
   //Function to search photos based on tags and also shows a random imgaes on the animals
-  searchResults = (query = "animals") => {
+  Results = (query = "animals") => {
     fetch(
       `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`
     )
@@ -80,7 +81,7 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div className="container">
-          <SearchForm onSearch={this.searchResults} />
+          <SearchForm onSearch={this.Results} />
           <Nav />
           <div className="photo-container">
             <Switch>
@@ -101,7 +102,7 @@ class App extends Component {
                   <PhotoContainer
                     data={this.state.photos}
                     title={this.state.tags}
-                    onSearch={this.searchResults}
+                    onSearch={this.Results}
                   />
                 )}
               />

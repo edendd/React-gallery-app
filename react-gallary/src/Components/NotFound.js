@@ -1,5 +1,6 @@
 import React from "react";
 
+// This function tells that the serach result not found if the user input unknown input
 function NotFound () {
   return (
   

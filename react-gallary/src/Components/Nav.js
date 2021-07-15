@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-
+// the nav links under the search bar
 const Nav = () => (
     <nav className="main-nav">
         <ul className="main-nav">
