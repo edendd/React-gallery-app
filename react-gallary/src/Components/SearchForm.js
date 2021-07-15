@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 
 class SearchForm extends Component{
 
-//First we declare the state to an empty string, then set the value of the state based on the user input.
+// declare the state to an empty string, set the value of the state based on the user input.
 
     state = {
         search: ''
@@ -15,7 +15,7 @@ class SearchForm extends Component{
         }) 
     }    
    
-//This function submits the search by first declaing the path and then with a conditional statement that calls the onSearch method 
+  // This helper function handles the submit button by calling the onSearch method
     submitSearch = (e) => {
         e.preventDefault();
         let path=`/search/${this.state.search}`;

@@ -6,7 +6,7 @@ import Photo from './Photo';
 const PhotoContainer = (props) => {
 
 
-//function below iterates through each photo in the array and interpolates the value of the photo server and photo id
+ // Function below iterates through each photo in the array and interpolates the value of the photo server and photo id
     let photos = props.data.map (photo => 
         <Photo
             url={`https://live.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`}
@@ -14,9 +14,9 @@ const PhotoContainer = (props) => {
         />
     );
 
-//this will return the photos into the photo containter, loads them into the ul
+ // This will return the photos into the photo containter
 return(
-<div className="photo-container">
+    <div className="photo-container">
     {(props.loading) ? <p>Loading</p> :
     (!props.data.length && !props.loading) ? <NotFound/> :
     <div>
